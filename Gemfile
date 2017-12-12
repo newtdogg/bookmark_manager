@@ -2,16 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.4.2'
 
-gem 'rspec'
-gem 'rubocop'
-gem 'capybara'
-gem 'sinatra'
-gem 'pry'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'shotgun'
+gem 'pry'
+gem 'rubocop'
 gem 'selenium-webdriver'
+gem 'shotgun'
+gem 'sinatra'
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'rspec'
 end
