@@ -4,6 +4,14 @@ require 'dm-postgres-adapter'
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, "postgres://localhost/database_play")
+# using ORM (object relational map) DataMapper
+# Ruby : Classes
+#        Instances
+#        Instance variables
+# Database Objects : Tables
+#                    Rows (tuples)
+#                    Columns (attributes)
+
 
 class Student
   include DataMapper::Resource

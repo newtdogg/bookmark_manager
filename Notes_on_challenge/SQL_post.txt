@@ -25,5 +25,9 @@ Using SQL you can: i)Create: 1)
                    iv)  Delete: 1)
                               example_database=# DELETE FROM example_table WHERE name = 'Newname'
                               This deletes Newname from the table
+                                2)
+                              DROP DATABASE example_database;
+                              This deletes a datebase
+                  EXTRA -- switching between databases \c example_database;
 
                    This is the CRUD Concept applied with SQL
