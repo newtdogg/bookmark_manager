@@ -11,3 +11,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'shotgun'
 gem 'selenium-webdriver'
+
+group :test do
+  gem 'database_cleaner'
+end
