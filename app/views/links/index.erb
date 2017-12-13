@@ -8,13 +8,13 @@
       <li> <!-- li = list, this is a child tag to the parent tag -->
         ID: <%= link.id %>
         Title: <%= link.title %>
-        Tag: <%= link.tags.map(&:name) %>
+        Tag: <%= link.tags.map{|x| "<a href='/tags/#{x.name}'>#{x.name}</a>"} %>
         URL: <a href="http://<%= link.url %>"><%= link.url %></a>
       </li>
     <% end %>
   </ul>
 
-  <form action'/tags' method='GET'>
+  <form action'/tags/search' method='GET'>
     <label for='search'>
       Search Tags:
       <input type='text' name='search' />
