@@ -8,7 +8,8 @@
       <li> <!-- li = list, this is a child tag to the parent tag -->
         ID: <%= link.id %>
         Title: <%= link.title %>
-        URL: <%= link.url %>
+        Tag: <%= link.tags.map(&:name) %>
+        URL: <a href="http://<%= link.url %>"><%= link.url %></a>
       </li>
     <% end %>
   </ul>
