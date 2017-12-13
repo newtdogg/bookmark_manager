@@ -7,6 +7,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require './app/models/link'
 require 'database_cleaner'
+require 'features/web_helpers'
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 Capybara.app = BookmarkManger
 
