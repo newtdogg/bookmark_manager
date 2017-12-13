@@ -1,5 +1,5 @@
 # Sinatra in the modular style
-ENV['RACK_ENV'] ||= 'development'
+ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative 'models/link'
 
