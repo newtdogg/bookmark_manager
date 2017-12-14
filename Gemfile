@@ -9,6 +9,7 @@ gem 'rubocop'
 gem 'selenium-webdriver'
 gem 'shotgun'
 gem 'sinatra'
+gem 'rake'
 
 group :test do
   gem 'capybara'

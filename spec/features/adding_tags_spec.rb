@@ -12,4 +12,15 @@ feature 'Adding tags' do
     expect(link.tags.map(&:name)).to include('education')
   end
 
+  scenario 'I can add multiple tags to a single link' do
+    visit '/links/new'
+    fill_in 'url',   with: 'http://www.makersacademy.com/'
+    fill_in 'title', with: 'Makers Academy'
+    fill_in 'tags',  with: 'education, gravy'
+
+    click_button 'Create link'
+    fill_in 'search', with: 'gravy'
+    click_button "Submit"
+    expect(page).to have_content 'www.makersacademy.com'
+  end
 end
