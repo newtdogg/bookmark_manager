@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 # Link class
 class Link
   include DataMapper::Resource
+  # many to many
   has n, :tags, through: Resource
 
   property :id, Serial

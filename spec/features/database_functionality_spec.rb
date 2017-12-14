@@ -9,4 +9,10 @@ feature 'View Homepage' do
       expect(page).to have_content('Albion')
     end
   end
+
+  scenario "search bar to look for tags" do
+    create_link_facebook
+    fill_in 'search', with: 'entertainment'
+    expect(page).to have_content 'www.facebook.com'
+  end
 end
