@@ -33,3 +33,11 @@ def log_in_bad
   fill_in "password_confirmation", with: "password1"
   click_button "sign up"
 end
+
+def log_in_without_email
+  visit('/users/new')
+  fill_in "email_address", with: ""
+  fill_in "password", with: "password"
+  fill_in "password_confirmation", with: "password"
+  click_button "sign up"
+end

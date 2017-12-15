@@ -1,11 +1,13 @@
 # Sinatra in the modular style
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class BookmarkManger < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -23,6 +25,7 @@ class BookmarkManger < Sinatra::Base
 
 
   get '/links/new' do
+    @user = User.new
     erb(:'links/new')
   end
 
@@ -51,15 +54,17 @@ class BookmarkManger < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create(email_address: params[:email_address], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    # @password = params[:password]
-    # @password_confirmation = params[:password_confirmation]
-    # if @password != @password_confirmation
-    #   @password_error = true
-    #   redirect '/users/new'
-    # end
-    redirect '/links'
+    @user = User.create(email_address: params[:email_address],
+                             password: params[:password],
+                password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/links'
+    else
+      flash.now[:notice] = "password mismatch, re-enter password"
+      erb(:'signup')
+    end
+
   end
 
   run! if app_file == $0

@@ -1,5 +1,6 @@
 ENV["RACK_ENV"] = "test"
 require 'sinatra'
+require 'sinatra/flash'
 require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
@@ -8,6 +9,7 @@ require 'dm-postgres-adapter'
 require './app/models/link'
 require 'database_cleaner'
 require 'features/web_helpers'
+# require 'sinatra-flash'
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 Capybara.app = BookmarkManger
 
