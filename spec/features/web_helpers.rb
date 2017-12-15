@@ -22,5 +22,14 @@ def log_in
   visit('/users/new')
   fill_in "email_address", with: "12345@live.xyz"
   fill_in "password", with: "password"
+  fill_in "password_confirmation", with: "password"
+  click_button "sign up"
+end
+
+def log_in_bad
+  visit('/users/new')
+  fill_in "email_address", with: "12345@live.xyz"
+  fill_in "password", with: "password"
+  fill_in "password_confirmation", with: "password1"
   click_button "sign up"
 end
