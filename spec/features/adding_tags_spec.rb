@@ -13,6 +13,7 @@ feature 'Adding tags' do
   end
 
   scenario 'I can add multiple tags to a single link' do
+    log_in
     visit '/links/new'
     fill_in 'url',   with: 'http://www.makersacademy.com/'
     fill_in 'title', with: 'Makers Academy'

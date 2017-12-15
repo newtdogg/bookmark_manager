@@ -7,6 +7,6 @@ feature 'Viewing links by tag' do
     expect(page.status_code).to eq 200
 
     expect(page).not_to have_content('Facebook')
-    expect(page).to have_content('Makers Academy')
+    expect(page).to have_content('Makers academy')
   end
 end

@@ -1,37 +1,65 @@
 <html>
 <head>
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <style>
+
+  </style>
 </head>
 
-
-  <div class = "row">
-    <div class = "col-sm-3">
-    </div>
-    <div class = "col-sm-6">
-      <h1>Links</h1>
-      <ul id='links'>
-        <% @links.each do |link| %>
-          <li>Title: <%= link.title %>ID: <%= link.id %>
-            <ul>
-            <li>Tag: <%= link.tags.map{|z| z.name.split(', ').map{|n|"<a href='/tags/#{n}'>#{n}</a>"}} %>
-            <li>URL: <a href="http://<%= link.url %>"><%= link.url %></a>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
-
-      <form action = '/tag' method='post'>
-        <label for='search'>
-          Search Tags:
-          <input type='text' name='search'>
-        </label>
-        <input type='submit' value='Submit'>
-      </form>
-    </div>
-    <div class = "col-sm-3">
+<header>
+  <div class = "jumbotron">
+    <div class = "row">
+      <div class = "col-sm-2">
+      </div>
+      <div class = "col-sm-4"  align="left">
+          <h1>Links</h1>
+        </div>
+      <div class = "col-sm-4"  align="right">
+          <form action = '/tag' method='post'>
+            <label for='search'>
+              Search Tags:
+              <input type='text' name='search'>
+            </label>
+            <input type='submit' value='Submit'>
+          </form>
+        </div>
+      <div class = "col-sm-2">
+        <h4>welcome <%=current_user.email_address%></h4>
+      </div>
     </div>
   </div>
+</header>
 
+<body>
+  <div class = "row">
+    <div class = "col-sm-1">
+    </div>
+    <div class = "col-sm-10 mainlist" align = "center">
+
+      <ul id='links'>
+        <% @links.each do |link| %>
+        <div class = 'links randombground' align = "left" >
+          <div class = "titles">
+            <li><%= link.title %>
+          </div>
+              <div class = "tags" >
+                ID: <%= link.id %>
+              </div>
+            <ul>
+              <li>Tags: <%= link.tags.map{|z| z.name.split(', ').map{|n|"<a href='/tags/#{n}'>#{n}</a>"}} %>
+              <li>URL: <a href="http://<%= link.url %>"><%= link.url %></a>
+            </ul>
+          </div>
+        <% end %>
+
+      </ul>
+
+
+    </div>
+    <div class = "col-sm-1">
+    </div>
+  </div>
+</body>
 
 </html>

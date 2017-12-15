@@ -9,3 +9,44 @@ backdrop {
 	font-weight: 400;
 	line-height: 11px;
 }
+
+.titles {
+  font-family: Futura;
+  font-size: 32px;
+  font-style: bold;
+  font-variant: normal;
+  font-weight: 500;
+}
+
+.links {
+  border-radius: 10px;
+  border: 0px solid #73AD21;
+  padding: 10px;
+  padding-left: 30px;
+  margin: 10px;
+  display: inline-block;
+  opacity: 1;
+	/*filter: alpha(opacity=100)*/
+}
+
+.links:hover {
+	background-color: #daffda;
+	/*filter: alpha(opacity=30);*/
+}
+
+.randombground {
+  background-color: #98FB98;
+}
+
+.mainlist {
+
+}
+
+.mainlist ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.mainlist li {
+
+}
