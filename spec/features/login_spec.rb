@@ -13,4 +13,8 @@ feature 'User login' do
   scenario 'a user should not be able to sign in with a blank email address' do
     expect { log_in_without_email }.to change(User, :count).by(0)
   end
+
+  scenario 'a user should not be able to sign in with an invalid email address' do
+    expect { log_in_with_bad_email }.to change(User, :count).by(0)
+  end
 end

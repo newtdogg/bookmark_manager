@@ -41,3 +41,11 @@ def log_in_without_email
   fill_in "password_confirmation", with: "password"
   click_button "sign up"
 end
+
+def log_in_with_bad_email
+  visit('/users/new')
+  fill_in "email_address", with: "sdhuhasdfhdsa"
+  fill_in "password", with: "password"
+  fill_in "password_confirmation", with: "password"
+  click_button "sign up"
+end

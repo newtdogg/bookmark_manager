@@ -50,11 +50,12 @@ class BookmarkManger < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb(:'signup')
   end
 
   post '/users/new' do
-    @user = User.create(email_address: params[:email_address],
+    @user = User.new(email_address: params[:email_address],
                              password: params[:password],
                 password_confirmation: params[:password_confirmation])
     if @user.save
